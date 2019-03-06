@@ -1,6 +1,6 @@
 {
   "name": "@lapidist/safestart",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A TypeScript safe start with testing, versioning, coverage, docs and linting set up for you.",
   "author": "Brett Dorrans <hello@lapidist.net>",
   "license": "MIT",
