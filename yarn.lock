@@ -4103,6 +4103,12 @@ tslint-config-prettier@^1.17.0:
   version "1.18.0"
   resolved "https://registry.npmjs.org/tslint-config-prettier/-/tslint-config-prettier-1.18.0.tgz#75f140bde947d35d8f0d238e0ebf809d64592c37"
 
+tslint-immutable@^5.3.1:
+  version "5.3.1"
+  resolved "https://registry.npmjs.org/tslint-immutable/-/tslint-immutable-5.3.1.tgz#73e02133233df7f8d29f1ddd4535344ef94b8c45"
+  dependencies:
+    tsutils "^2.28.0 || ^3.0.0"
+
 tslint@^5.11.0:
   version "5.13.1"
   resolved "https://registry.npmjs.org/tslint/-/tslint-5.13.1.tgz#fbc0541c425647a33cd9108ce4fd4cd18d7904ed"
@@ -4124,6 +4130,12 @@ tslint@^5.11.0:
 tsutils@^2.27.2:
   version "2.29.0"
   resolved "https://registry.npmjs.org/tsutils/-/tsutils-2.29.0.tgz#32b488501467acbedd4b85498673a0812aca0b99"
+  dependencies:
+    tslib "^1.8.1"
+
+"tsutils@^2.28.0 || ^3.0.0":
+  version "3.8.0"
+  resolved "https://registry.npmjs.org/tsutils/-/tsutils-3.8.0.tgz#7a3dbadc88e465596440622b65c04edc8e187ae5"
   dependencies:
     tslib "^1.8.1"
 
