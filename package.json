@@ -1,6 +1,6 @@
 {
   "name": "@lapidist/safestart",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A TypeScript safe start with testing, versioning, coverage, docs and linting set up for you.",
   "author": "Brett Dorrans <hello@lapidist.net>",
   "license": "MIT",
@@ -27,7 +27,7 @@
     "clean": "trash build test",
     "all": "run-s reset test cov:check doc:html",
     "prepare-release": "run-s all version doc:publish",
-    "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('boids must be installed with Yarn: https://yarnpkg.com/')\""
+    "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('safestart must be installed with Yarn: https://yarnpkg.com/')\""
   },
   "scripts-info": {
     "info": "Display information about the package scripts",
@@ -59,6 +59,7 @@
     "trash-cli": "^1.4.0",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.17.0",
+    "tslint-immutable": "^5.3.1",
     "typedoc": "^0.14.2",
     "typescript": "^3.1.6"
   },
