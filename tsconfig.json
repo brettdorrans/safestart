@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "es5",
     "outDir": "build",
     "rootDir": "src",
     "moduleResolution": "node",
     "module": "commonjs",
     "declaration": true,
-    "inlineSourceMap": true,
+    "inlineSourceMap": false,
     "esModuleInterop": true,
     "strict": true,
     "noImplicitAny": true,
@@ -19,6 +19,7 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "jsx": "react",
     "traceResolution": false /* Report module resolution log messages. */,
     "listEmittedFiles": false /* Print names of generated files part of the compilation. */,
     "listFiles": false /* Print names of files part of the compilation. */,
@@ -29,7 +30,7 @@
     "types": [],
     "typeRoots": ["node_modules/@types", "src/types"]
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules/**"],
   "compileOnSave": false
 }
