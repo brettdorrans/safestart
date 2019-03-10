@@ -1,0 +1,19 @@
+{
+  "name": "@lapidist/safestart-scripts",
+  "version": "1.0.0",
+  "description": "A TypeScript boilerplate with testing, versioning, coverage, docs and linting set up for you.",
+  "repository": "git@github.com:brettdorrans/safestart.git",
+  "author": "Brett Dorrans <hello@lapidist.net>",
+  "license": "MIT",
+  "bin": {
+    "safestart-scripts": "./index.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "engines": {
+    "node": ">=8.10"
+  },
+  "dependencies": {
+  }
+}
