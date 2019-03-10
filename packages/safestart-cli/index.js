@@ -8,6 +8,7 @@ const fs = require('fs-extra');
 const os = require('os');
 const spawn = require('cross-spawn');
 const inquirer = require('inquirer');
+const templates = require('@lapidist/safestart-templates');
 
 const pkg = require('./package.json');
 
@@ -79,84 +80,109 @@ if (typeof projectName === 'undefined') {
                 message: 'description:'
             },
             {
-                type: 'checkbox',
-                name: 'options',
-                message: 'options:',
+                type: 'list',
+                name: 'stack',
+                message: 'choose your stack:',
                 choices: [
                     {
-                        name: 'react'
+                        name: 'safestart'
+                    },
+                    {
+                        name: 'safestart-react'
+                    },
+                    {
+                        name: 'safestart-react-redux'
                     }
                 ]
             }
         ])
         .then(answers => {
+            if (typeof templates[answers.stack] === 'undefined') {
+                console.error(
+                    `Unable to create ${chalk.bold(
+                        appName
+                    )}. Missing @lapidist/safestart-templates entry. Upgrade your safestart-cli: ${chalk.bold(
+                        'npm i -g @lapidist/safestart-cli'
+                    )}`
+                );
+                process.exit(1);
+            }
+
+            const stack = templates[answers.stack];
+            const {
+                dependencies,
+                devDependencies
+            } = stack.packageJson.safestart;
+
             fs.ensureDirSync(projectName);
             fs.writeFileSync(
                 path.join(root, 'package.json'),
-                JSON.stringify({
-                    ...packageJson,
-                    name: answers.name,
-                    version: answers.version,
-                    description: answers.description
-                }, null, 2) + os.EOL
+                JSON.stringify(
+                    {
+                        ...packageJson,
+                        name: answers.name,
+                        version: answers.version,
+                        description: answers.description,
+                        main: stack.main,
+                        scripts: stack.scripts,
+                        'scripts-info': stack['scripts-info'],
+                        engines: stack.engines
+                    },
+                    null,
+                    2
+                ) + os.EOL
             );
 
-            install(root, getDependencies(answers.options))
-                .then(() => {})
+            install(root, dependencies, devDependencies)
                 .catch(error => {
-                    console.error(chalk.red('Something went wrong during install:'));
+                    console.error(
+                        chalk.red('Something went wrong during install:')
+                    );
                     console.error(error);
                     process.exit(1);
                 })
                 .finally(() => {
                     console.log(
-                        `${love}  ${chalk.green(chalk.bold(
-                            `cd ${appName} && yarn start`
-                        ))} to begin.`
+                        `${love}  ${chalk.green(
+                            chalk.bold(`cd ${appName} && yarn start`)
+                        )} to begin.`
                     );
                     console.log(
-                        `${magic}  Use ${chalk.bold('yarn run info')} for more helpful scripts.`
+                        `${magic}  Use ${chalk.bold(
+                            'yarn run info'
+                        )} for more helpful scripts.`
                     );
                     process.exit(0);
                 });
         });
 })('👍', '💡');
 
-function install(root, dependencies) {
+function install(root, dependencies, devDependencies) {
     return new Promise((resolve, reject) => {
-        const args = [];
+        const args = ['add', '--exact', '--cwd', root, ...dependencies];
+        const devArgs = ['add', '--exact', '--dev', '--cwd', root, ...devDependencies, ];
 
-        args.push('add', '--exact', ...dependencies, '--cwd', root);
+        if (dependencies.length) {
+            const child = spawn('yarn', args, { stdio: 'inherit' });
 
-        const child = spawn('yarn', args, { stdio: 'inherit' });
-        child.on('close', code => {
-            if (code !== 0) {
-                reject({ command: `yarn ${args.join(' ')}` });
-                return;
-            }
+            child.on('close', code => {
+                if (code !== 0) {
+                    reject({ command: `yarn ${args.join(' ')}` });
+                }
+            });
+        }
 
-            resolve();
-        });
+        if (devDependencies.length) {
+            const devChild = spawn('yarn', devArgs, { stdio: 'inherit' });
+
+            devChild.on('close', code => {
+                if (code !== 0) {
+                    reject({ command: `yarn ${devArgs.join(' ')}` });
+                    return;
+                }
+
+                resolve();
+            });
+        }
     });
-}
-
-function getDependencies(options) {
-    const dependencies = [
-        '@types/node',
-        '@lapidist/safestart-scripts',
-        'typescript'
-    ];
-
-    if (options.indexOf('react') > -1) {
-        dependencies.push(
-            '@types/react',
-            '@types/react-dom',
-            'react',
-            'react-dom'
-        );
-    }
-
-    console.log(dependencies);
-
-    return dependencies;
 }
