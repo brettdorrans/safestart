@@ -9,19 +9,23 @@
 
 ## Quickstart
 
-Clone repository into a directory:
 ```bash
-➜ git clone https://github.com/brettdorrans/safestart.git
+➜ npx @lapidist/safestart-cli <project-name>
+➜ cd <project-name>
+➜ npm run start
 ```
 
-Install dependencies:
+Alternatively:
 ```bash
-➜ yarn
+➜ npm i -g @lapidist/safestart-cli
+➜ safestart <project-name>
+➜ cd <project-name>
+➜ npm run start
 ```
 
 Find more information about `package.json` scripts:
 ```bash
-➜ yarn run info
+➜ npm run info
 ```
 ```
 info:
