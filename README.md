@@ -4,6 +4,7 @@
 [![GitHub Issues](https://img.shields.io/github/issues/brettdorrans/safestart.svg?style=flat)](https://github.com/brettdorrans/safestart/issues)
 [![Dependencies](https://david-dm.org/brettdorrans/safestart/status.svg?style=flat)](https://david-dm.org/brettdorrans/safestart)
 [![Dev Dependencies](https://david-dm.org/brettdorrans/safestart/dev-status.svg)](https://david-dm.org/brettdorrans/safestart?type=dev)
+[![Coverage Status](https://coveralls.io/repos/github/brettdorrans/safestart/badge.svg?branch=master)](https://coveralls.io/github/brettdorrans/safestart)
 [![Build Status](https://travis-ci.org/brettdorrans/safestart.svg?branch=master)](https://travis-ci.org/brettdorrans/safestart)
 
 [safestart](https://brettdorrans.github.io/safestart/): A TypeScript boilerplate with testing, versioning, coverage, docs and linting set up for you.
