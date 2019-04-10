@@ -3,6 +3,7 @@
 [![GitHub Release](https://img.shields.io/github/release/brettdorrans/safestart.svg?style=flat)](https://github.com/brettdorrans/safestart/releases)
 [![GitHub Issues](https://img.shields.io/github/issues/brettdorrans/safestart.svg?style=flat)](https://github.com/brettdorrans/safestart/issues)
 [![Dependencies](https://david-dm.org/brettdorrans/safestart/status.svg?style=flat)](https://david-dm.org/brettdorrans/safestart)
+[![Dev Dependencies](https://david-dm.org/brettdorrans/safestart/dev-status.svg)](https://david-dm.org/brettdorrans/safestart?type=dev)
 [![Build Status](https://travis-ci.org/brettdorrans/safestart.svg?branch=master)](https://travis-ci.org/brettdorrans/safestart)
 
 [safestart](https://brettdorrans.github.io/safestart/): A TypeScript boilerplate with testing, versioning, coverage, docs and linting set up for you.
@@ -16,12 +17,12 @@ Clone repository into a directory:
 
 Install dependencies:
 ```bash
-➜ yarn
+➜ npm i
 ```
 
 Find more information about `package.json` scripts:
 ```bash
-➜ yarn run info
+➜ npm run info
 ```
 ```
 info:

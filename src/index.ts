@@ -1,1 +1,3 @@
-export * from './lib/root';
+import Example from './example';
+
+export { Example };
