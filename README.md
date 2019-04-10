@@ -16,12 +16,12 @@ Clone repository into a directory:
 
 Install dependencies:
 ```bash
-➜ yarn
+➜ npm i
 ```
 
 Find more information about `package.json` scripts:
 ```bash
-➜ yarn run info
+➜ npm run info
 ```
 ```
 info:

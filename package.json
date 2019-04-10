@@ -23,11 +23,10 @@
     "doc:html": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --out docs",
     "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d docs",
     "version": "standard-version",
-    "reset": "git clean -dfx && git reset --hard && yarn",
+    "reset": "git clean -dfx && git reset --hard && npm i",
     "clean": "trash build test",
     "all": "run-s reset test cov:check doc:html",
-    "prepare-release": "run-s all version doc:publish",
-    "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('safestart must be installed with Yarn: https://yarnpkg.com/')\""
+    "prepare-release": "run-s all version doc:publish"
   },
   "scripts-info": {
     "info": "Display information about the package scripts",

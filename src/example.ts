@@ -1,8 +1,8 @@
-export interface IRoot {
+export interface IExample {
     readonly name: string;
 }
 
-function create(name: string): IRoot {
+function create(name: string): IExample {
     return { name };
 }
 
