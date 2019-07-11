@@ -1,6 +1,27 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [1.1.6](https://github.com/brettdorrans/safestart/compare/v1.1.5...v1.1.6) (2019-07-11)
+
+
+
+### [1.1.5](https://github.com/brettdorrans/safestart/compare/v1.1.4...v1.1.5) (2019-07-11)
+
+
+
+## [1.1.4](https://github.com/brettdorrans/safestart/compare/v1.1.3...v1.1.4) (2019-04-10)
+
+
+### Bug Fixes
+
+* default to using npm over yarn ([bc9cb2a](https://github.com/brettdorrans/safestart/commit/bc9cb2a))
+
+
+
+## [1.1.3](https://github.com/brettdorrans/safestart/compare/v1.1.2...v1.1.3) (2019-03-07)
+
+
 
 ## [1.1.2](https://github.com/brettdorrans/safestart/compare/v1.1.1...v1.1.2) (2019-03-06)
 

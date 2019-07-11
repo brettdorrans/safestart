@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2017",
     "outDir": "build",
-    "rootDir": "src",
+    "rootDirs": ["src", "__tests__"],
     "moduleResolution": "node",
     "module": "commonjs",
     "declaration": true,
-    "inlineSourceMap": false,
+    "inlineSourceMap": true,
     "esModuleInterop": true,
     "strict": true,
     "noImplicitAny": true,
@@ -19,7 +19,6 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "jsx": "react",
     "traceResolution": false /* Report module resolution log messages. */,
     "listEmittedFiles": false /* Print names of generated files part of the compilation. */,
     "listFiles": false /* Print names of files part of the compilation. */,
@@ -27,10 +26,9 @@
     "experimentalDecorators": true /* Enables experimental support for ES7 decorators. */,
     "emitDecoratorMetadata": true /* Enables experimental support for emitting type metadata for decorators. */,
     "lib": ["es2017", "dom"],
-    "types": [],
     "typeRoots": ["node_modules/@types", "src/types"]
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "include": ["src/**/*.ts", "__tests__/**/*.ts"],
   "exclude": ["node_modules/**"],
   "compileOnSave": false
 }
