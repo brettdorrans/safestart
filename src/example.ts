@@ -1,8 +1,8 @@
-export interface IExample {
+export interface Example {
     readonly name: string;
 }
 
-function create(name: string): IExample {
+function create(name: string): Example {
     return { name };
 }
 
