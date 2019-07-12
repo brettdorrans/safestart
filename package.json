@@ -13,7 +13,7 @@
     "fix:prettier": "prettier \"src/**/*.ts\" \"__tests__/**/*.ts\" --write",
     "fix:eslint": "eslint --fix src/**/*.ts",
     "test": "run-s build test:*",
-    "test:lint": "eslint src/** && prettier \"src/**/*.ts\" \"__tests__/**/*.ts\" --list-different",
+    "test:lint": "eslint src/**/*.ts && prettier \"src/**/*.ts\" \"__tests__/**/*.ts\" --list-different",
     "test:unit": "nyc --silent ava",
     "watch": "run-s clean build:main && run-p \"build:main -- -w\" \"test:unit -- --watch\"",
     "cov": "run-s build test:unit cov:html && open coverage/index.html",
