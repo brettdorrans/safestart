@@ -11,7 +11,7 @@
     "build:main": "tsc -p tsconfig.json",
     "fix": "run-s fix:*",
     "fix:prettier": "prettier \"src/**/*.ts\" \"__tests__/**/*.ts\" --write",
-    "fix:eslint": "eslint --fix src/**",
+    "fix:eslint": "eslint --fix src/**/*.ts",
     "test": "run-s build test:*",
     "test:lint": "eslint src/** && prettier \"src/**/*.ts\" \"__tests__/**/*.ts\" --list-different",
     "test:unit": "nyc --silent ava",
