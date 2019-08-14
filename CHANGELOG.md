@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.7](https://github.com/brettdorrans/safestart/compare/v1.1.6...v1.1.7) (2019-08-14)
+
+
+### Bug Fixes
+
+* include typescript-eslint plugin ([9d83e05](https://github.com/brettdorrans/safestart/commit/9d83e05))
+
 ### [1.1.6](https://github.com/brettdorrans/safestart/compare/v1.1.5...v1.1.6) (2019-07-11)
 
 
