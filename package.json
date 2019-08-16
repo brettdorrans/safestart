@@ -7,15 +7,17 @@
   "author": "Brett Dorrans <hello@lapidist.net>",
   "license": "MIT",
   "scripts": {
+    "postinstall": "lerna bootstrap",
     "info": "npm-scripts-info",
     "fix": "run-s fix:*",
-    "fix:prettier": "prettier \"packages/**/*.{js,ts,tsx}\" --write",
-    "fix:tslint": "tslint --fix --project .",
+    "fix:prettier": "prettier \"packages/**/*.js\" --write",
+    "fix:lint": "eslint --fix \"packages/**/*.js\"",
     "test": "run-s test:*",
-    "test:lint": "tslint --project . && prettier \"packages/**/*.{js,ts,tsx}\" --list-different",
-    "test:unit": "nyc --silent ava && nyc report --reporter=text-lcov | coveralls",
+    "test:lint": "eslint \"packages/**/*.js\"",
+    "test:prettier": "prettier \"packages/**/*.js\" --list-different",
+    "test:unit": "nyc --silent ava && nyc report --reporter=text-lcov",
     "watch": "run-s clean && run-p \"fix\" \"test:unit -- --watch\"",
-    "cov": "run-s test:unit cov:html && opn coverage/index.html",
+    "cov": "run-s test:unit cov:html && open coverage/index.html",
     "cov:html": "nyc report --reporter=html",
     "cov:check": "nyc report && nyc check-coverage --lines 100 --functions 100 --branches 100",
     "version": "standard-version",
@@ -39,22 +41,21 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "ava": "1.3.1",
+    "ava": "^2.2.0",
     "codecov": "^3.1.0",
-    "coveralls": "^3.0.3",
-    "cz-conventional-changelog": "^2.1.0",
+    "cz-conventional-changelog": "^3.0.2",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
     "lerna": "^3.13.1",
     "npm-run-all": "^4.1.5",
     "npm-scripts-info": "^0.3.9",
-    "nyc": "^13.1.0",
-    "opn-cli": "^4.0.0",
-    "prettier": "^1.15.2",
-    "standard-version": "^5.0.1",
-    "trash-cli": "^1.4.0",
-    "tslint": "^5.11.0",
-    "tslint-config-prettier": "^1.17.0",
-    "tslint-immutable": "^5.3.1",
-    "typescript": "^3.1.6"
+    "nyc": "^14.1.1",
+    "open": "^6.4.0",
+    "prettier": "^1.18.2",
+    "standard-version": "^7.0.0",
+    "trash-cli": "^3.0.0",
+    "typescript": "^3.5.3"
   },
   "ava": {
     "failFast": false
@@ -63,9 +64,6 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
-  },
-  "prettier": {
-    "singleQuote": true
   },
   "nyc": {
     "exclude": [

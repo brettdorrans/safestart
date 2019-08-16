@@ -6,7 +6,7 @@
   "author": "Brett Dorrans <hello@lapidist.net>",
   "license": "MIT",
   "bin": {
-    "safestart-scripts": "./index.js"
+    "safestart-scripts": "./src/index.js"
   },
   "files": [
     "index.js"
@@ -14,6 +14,5 @@
   "engines": {
     "node": ">=8.10"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

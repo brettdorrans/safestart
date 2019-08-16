@@ -6,7 +6,7 @@
   "author": "Brett Dorrans <hello@lapidist.net>",
   "license": "MIT",
   "files": [
-    "index.js"
+    "./src/index.js"
   ],
   "engines": {
     "node": ">=8.10"

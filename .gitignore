@@ -16,6 +16,7 @@ Thumbs.db
 
 # Dist #
 build/
+test/
 
 # IDE #
 .idea/

@@ -6,7 +6,7 @@
   "author": "Brett Dorrans <hello@lapidist.net>",
   "license": "MIT",
   "bin": {
-    "safestart": "./index.js"
+    "safestart": "./src/index.js"
   },
   "files": [
     "index.js"

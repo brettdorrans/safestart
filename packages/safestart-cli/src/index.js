@@ -10,7 +10,7 @@ const spawn = require('cross-spawn');
 const inquirer = require('inquirer');
 const templates = require('@lapidist/safestart-templates');
 
-const pkg = require('./package.json');
+const pkg = require('./../package.json');
 
 let projectName;
 const program = new commander.Command(pkg.name)
@@ -101,7 +101,7 @@ if (typeof projectName === 'undefined') {
                 console.error(
                     `Unable to create ${chalk.bold(
                         appName
-                    )}. Missing @lapidist/safestart-templates entry. Upgrade your safestart-cli: ${chalk.bold(
+                    )}. Missing @lapidist/safestart-templates entry.\nUpgrade your safestart-cli: ${chalk.bold(
                         'npm i -g @lapidist/safestart-cli'
                     )}`
                 );
@@ -160,7 +160,14 @@ if (typeof projectName === 'undefined') {
 function install(root, dependencies, devDependencies) {
     return new Promise((resolve, reject) => {
         const args = ['add', '--exact', '--cwd', root, ...dependencies];
-        const devArgs = ['add', '--exact', '--dev', '--cwd', root, ...devDependencies, ];
+        const devArgs = [
+            'add',
+            '--exact',
+            '--dev',
+            '--cwd',
+            root,
+            ...devDependencies
+        ];
 
         if (dependencies.length) {
             const child = spawn('yarn', args, { stdio: 'inherit' });
