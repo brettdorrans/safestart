@@ -1,0 +1,3 @@
+var typedoc = typedoc || {};
+            typedoc.search = typedoc.search || {};
+            typedoc.search.data = {"kinds":{"64":"Function","256":"Interface","1024":"Property"},"rows":[{"id":0,"kind":256,"name":"Example","url":"interfaces/example.html","classes":"tsd-kind-interface"},{"id":1,"kind":1024,"name":"name","url":"interfaces/example.html#name","classes":"tsd-kind-property tsd-parent-kind-interface","parent":"Example"},{"id":2,"kind":64,"name":"create","url":"globals.html#create","classes":"tsd-kind-function tsd-is-not-exported"}]};
