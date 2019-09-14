@@ -10,6 +10,22 @@
 
 ## Quickstart
 
+```bash
+➜ npx @lapidist/safestart-cli <project-name>
+➜ cd <project-name>
+➜ npm run watch
+```
+
+Alternatively:
+```bash
+➜ npm i -g @lapidist/safestart-cli
+➜ safestart <project-name>
+➜ cd <project-name>
+➜ npm run watch
+```
+
+## Development
+
 Clone repository into a directory:
 ```bash
 ➜ git clone https://github.com/brettdorrans/safestart.git
