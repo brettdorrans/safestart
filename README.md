@@ -39,12 +39,6 @@ cov:
   Rebuild, run tests, then create and open the coverage report
 doc:
   Generate HTML API documentation and open it in a browser
-version:
-  Bump package.json version, update CHANGELOG.md, tag release
-reset:
-  Delete all untracked files and reset the repo to the last commit
-prepare-release:
-  One-step: clean, build, test, publish docs, and prep a release
 ```
 
 Additional build tasks can be found in `package.json`.
