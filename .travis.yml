@@ -15,7 +15,6 @@ script:
     - npm run test
     - npm run cov:check
     - npm run build
-    - npm run doc:html
 deploy:
     provider: pages
     skip_cleanup: true
@@ -28,6 +27,7 @@ jobs:
         - stage: release
           node_js: lts/*
           script:
+              - npm run build
               - npm run semantic-release
 notifications:
     email: false
