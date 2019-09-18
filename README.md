@@ -18,10 +18,80 @@
 
 Alternatively:
 ```bash
-➜ npm i -g @lapidist/safestart-cli
+➜ npm install -g @lapidist/safestart-cli
 ➜ safestart <project-name>
 ➜ cd <project-name>
 ➜ npm run watch
+```
+
+### With React
+First ensure Webpack is installed. In project folder:
+```bash
+➜ npm install --save-dev webpack webpack-cli
+```
+Now add React and React-DOM, along with their declaration files, as dependencies to your `package.json` file:
+```bash
+➜ npm install --save react react-dom
+➜ npm install --save-dev @types/react @types/react-dom typescript ts-loader source-map-loader eslint-plugin-react
+```
+
+Update your `.eslintrc.js`:
+```diff
+   sourceType: 'module',
+-  project: './tsconfig.json'
++  project: './tsconfig.json',
++  ecmaFeatures: {
++      jsx: true
++  }
+```
+
+Update your `tsconfig.json`:
+```diff
+{
+  "compilerOptions": {
+    "module": "commonjs",
++   "jsx": "react",
+  }
+}
+```
+
+```diff
+- "include": ["src/**/*.ts", "__tests__/**/*.ts"],
++ "include": [
++       "src/**/*.ts", 
++       "__tests__/**/*.ts",
++       "src/**/*.tsx", 
++       "__tests__/**/*.tsx"
++   ],
+```
+
+Modify `index.ts` and rename to `index.tsx`:
+```typescript jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import { Example } from './example';
+
+ReactDOM.render(
+    <Example compiler="TypeScript" framework="React" />,
+    document.getElementById('example')
+);
+```
+
+Modify `example.ts` and rename to `example.tsx`:
+```typescript jsx
+import React from 'react';
+
+export interface ExampleProps {
+    compiler: string;
+    framework: string;
+}
+
+export const Example = (props: ExampleProps) => (
+    <h1>
+        Hello from {props.compiler} and {props.framework}!
+    </h1>
+);
 ```
 
 ## Development
@@ -33,7 +103,7 @@ Clone repository into a directory:
 
 Install dependencies:
 ```bash
-➜ npm i
+➜ npm install
 ```
 
 Find more information about `package.json` scripts:
