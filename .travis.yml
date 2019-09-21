@@ -26,8 +26,6 @@ jobs:
         - stage: release
           node_js: lts/*
           script:
-              - npm run build
-              - npm run doc
               - npm run semantic-release
 notifications:
     email: false
