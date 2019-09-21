@@ -11,11 +11,24 @@ cache:
         - node_modules
 install:
     - travis_retry npm install
+script:
+    - npm run test
+    - npm run build
+    - npm run doc
+deploy:
+    provider: pages
+    skip_cleanup: true
+    github_token: $GH_TOKEN
+    local_dir: docs
+    on:
+        branch: master
 jobs:
     include:
         - stage: release
           node_js: lts/*
           script:
+              - npm run build
+              - npm run doc
               - npm run semantic-release
 notifications:
     email: false
