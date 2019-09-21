@@ -12,8 +12,8 @@ cache:
 install:
     - travis_retry npm install
 script:
-    - npm run test
     - npm run build
+    - npm run test
     - npm run doc
 deploy:
     provider: pages
