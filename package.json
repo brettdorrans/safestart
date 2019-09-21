@@ -18,6 +18,6 @@
     "semantic-release": "npx semantic-release"
   },
   "dependencies": {
-    "@lapidist/safestart-cli": "*"
+    "@lapidist/safestart-cli": "^2.2.1"
   }
 }
